@@ -7,10 +7,10 @@ saveset = 'style_crop'
 size = 512
 
 for fn in os.listdir(dataset):
-    print fn
+    print(fn)
     img = cv2.imread(dataset + '/' + fn)
     w,h,c = np.shape(img)
-    print w,h
+    print(w,h)
 
     if w >= h:
         ratio = float(h)/float(w)
@@ -26,7 +26,7 @@ for fn in os.listdir(dataset):
     crop_h = int((h-size) * 0.5)
 #    cv2.imsave(saveset + '/' + 'resize_' + fn, img_resize)
 
-    print crop_h, crop_w
+    print(crop_h, crop_w)
     img_crop = img_resize[crop_w:crop_w+size,crop_h:crop_h+size,:]
     cv2.imsave(saveset + '/' + fn, img_crop)
     

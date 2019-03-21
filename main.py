@@ -13,7 +13,7 @@ def main():
     parser.add_argument("-p", "--project", type=str, default="mst")
 
     ## Train images
-    parser.add_argument("-ctd", "--content_dataset", type=str, default="/mnt/cloud/Data/COCO/all")
+    parser.add_argument("-ctd", "--content_dataset", type=str, default="./data/train2017")
     parser.add_argument("-cts", "--content_data_size", type=int, default=256)
     parser.add_argument("-sti", "--style_image", type=str, default="images/style/0_udnie.jpg")
 

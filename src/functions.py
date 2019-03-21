@@ -30,7 +30,7 @@ def make_project_dir(project_dir):
 
 
 def data_loader(dataset):
-    print 'images Load ....'
+    print('images Load ....')
     data_path = dataset
 
     if os.path.exists(data_path + '.npy'):
@@ -38,6 +38,6 @@ def data_loader(dataset):
     else:
         data = glob(os.path.join(data_path, "*.*"))
         np.save(data_path + '.npy', data)
-    print 'images Load Done'
+    print('images Load Done')
 
     return data

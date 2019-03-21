@@ -1,1 +1,13 @@
 src/*.pyc
+
+*.jpg
+*.jpeg
+*.png
+*.bmp
+
+*.mat
+*.txt
+
+py3/
+data/
+dotti/

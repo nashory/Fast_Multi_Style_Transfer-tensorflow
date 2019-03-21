@@ -1,3 +1,4 @@
+from functools import reduce
 import tensorflow as tf
 
 
@@ -8,7 +9,7 @@ def conv_layer(net, num_filters, filter_size, strides, style_control=None, relu=
         weights_init = tf.get_variable(name, shape=weights_shape, initializer=tf.truncated_normal_initializer(stddev=.01))
         strides_shape = [1, strides, strides, 1]
 
-        p = (filter_size - 1) / 2
+        p = int((filter_size - 1) / 2)
         if strides == 1:
             net = tf.pad(net, [[0, 0], [p, p], [p, p], [0, 0]], "REFLECT")
             net = tf.nn.conv2d(net, weights_init, strides_shape, padding="VALID")
@@ -36,7 +37,7 @@ def conv_tranpose_layer(net, num_filters, filter_size, strides, style_control=No
         tf_shape = tf.stack(new_shape)
         strides_shape = [1,strides,strides,1]
 
-        p = (filter_size - 1) / 2
+        p = int((filter_size - 1) / 2)
         if strides == 1:
             net = tf.pad(net, [[0, 0], [p, p], [p, p], [0, 0]], "REFLECT")
             net = tf.nn.conv2d_transpose(net, weights_init, tf_shape, strides_shape, padding="VALID")
